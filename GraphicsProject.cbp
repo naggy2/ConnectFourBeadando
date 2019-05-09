@@ -46,7 +46,7 @@
 		<Unit filename="Connectfour.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="widgets.cpp" />
-		<Unit filename="widgets.hpp" />
+		<Unit filename="widgets.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
