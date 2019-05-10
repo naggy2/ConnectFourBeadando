@@ -7,7 +7,7 @@
 using namespace genv;
 using namespace std;
 
-Button::Button(Application* p,int x, int y, int sx, int sy,bool dir,function<void()> func)
+Button::Button(Application* p,int x, int y, int sx, int sy ,function<void()> func)
     : Widget(p,x,y,sx,sy), _func(func){
 
 }

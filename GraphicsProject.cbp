@@ -42,8 +42,12 @@
 		</Linker>
 		<Unit filename="Application.cpp" />
 		<Unit filename="Application.h" />
+		<Unit filename="Button.cpp" />
+		<Unit filename="Button.h" />
 		<Unit filename="Connectfour.cpp" />
 		<Unit filename="Connectfour.h" />
+		<Unit filename="Statictext.cpp" />
+		<Unit filename="Statictext.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="widgets.cpp" />
 		<Unit filename="widgets.h" />
