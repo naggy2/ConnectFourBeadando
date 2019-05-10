@@ -7,17 +7,7 @@
 using namespace genv;
 using namespace std;
 
-void drawcircle(int r, int x, int y){
-    for (int i = -r;i< r;i++ ){
-        for (int j = -r;j< r;j++ ){
-            if(i*i+j*j<=r*r){
-                gout<<move_to(x+i,y+j)<<dot;
-            }
-        }
 
-    }
-
-}
 
 Field::Field(Application* p,int x, int y, int sx, int sy)
     : Widget(p,x,y,sx,sy), _side(none){
@@ -52,6 +42,12 @@ int Field::getSide() const{
     else if(_side == yellow){return 2;}
     return 0;
 }
+
+bool Field::isEmpty() const{
+    if(_side==none){ return true;}
+    return false;
+}
+
 void Field::setSide(int n){
 
     if(n == 0){ _side = none;}
