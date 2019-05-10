@@ -4,7 +4,7 @@
 #include <functional>
 #include "widgets.h"
 
-enum side {none = 0, red = 1, blue = 2};
+enum side {none = 0, red = 1, yellow = 2};
 
 class Field : public Widget {
 

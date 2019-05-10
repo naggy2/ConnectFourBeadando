@@ -7,7 +7,7 @@ class Application;
 
 class Widget {
 protected:
-    int _x, _y, _size_x, _size_y;
+    int _x, _y, _sx, _sy;
     Application *_parent;
 public:
 

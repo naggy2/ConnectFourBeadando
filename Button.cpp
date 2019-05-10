@@ -13,12 +13,12 @@ Button::Button(Application* p,int x, int y, int sx, int sy ,function<void()> fun
 }
 
 void Button::drawBox(int x_offset,int y_offset,int contourColor,int boxColor) const{
-    genv::gout<<genv::color(contourColor,contourColor,contourColor)<<genv::move_to(_x + x_offset,_y + y_offset)  <<genv::box(_size_x,_size_y);
-    genv::gout<<genv::color(boxColor,boxColor,boxColor) <<genv::move_to(_x+x_offset +1, _y+1 +y_offset)<<genv::box(_size_x-2,_size_y-2);
+    genv::gout<<genv::color(contourColor,contourColor,contourColor)<<genv::move_to(_x + x_offset,_y + y_offset)  <<genv::box(_sx,_sy);
+    genv::gout<<genv::color(boxColor,boxColor,boxColor) <<genv::move_to(_x+x_offset +1, _y+1 +y_offset)<<genv::box(_sx-2,_sy-2);
 }
 void Button::drawBox(int x_offset,int y_offset,int contour_r,int contour_g,int contour_b,int boxColor) const{
-    genv::gout<<genv::color(contour_r,contour_g,contour_b)<<genv::move_to(_x + x_offset,_y + y_offset)  <<genv::box(_size_x,_size_y);
-    genv::gout<<genv::color(boxColor,boxColor,boxColor) <<genv::move_to(_x+x_offset +1, _y+1 +y_offset)<<genv::box(_size_x-2,_size_y-2);
+    genv::gout<<genv::color(contour_r,contour_g,contour_b)<<genv::move_to(_x + x_offset,_y + y_offset)  <<genv::box(_sx,_sy);
+    genv::gout<<genv::color(boxColor,boxColor,boxColor) <<genv::move_to(_x+x_offset +1, _y+1 +y_offset)<<genv::box(_sx-2,_sy-2);
 }
 void Button::drawText(int x_offset,int y_offset,int contourColor,int boxColor) const{
 }

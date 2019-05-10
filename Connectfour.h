@@ -3,8 +3,11 @@
 
 #include "Application.h"
 
+
 class Connectfour : public Application
 {
+
+
 public:
     Connectfour(int w, int h);
     ~Connectfour();
