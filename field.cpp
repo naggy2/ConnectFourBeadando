@@ -1,8 +1,7 @@
 #include "field.h"
 #include "graphics.hpp"
 
-#include <iostream>
-#include <sstream>
+
 
 using namespace genv;
 using namespace std;
