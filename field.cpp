@@ -34,6 +34,11 @@ void Field::draw() const{
 
     }
 
+//    if(_infocus){
+//
+//        gout<<move_to(_x,_y)<<color(0,200,200)<<box(_sx/2,_sy/2);
+//    }
+
 }
 int Field::getSide() const{
 
@@ -58,8 +63,8 @@ void Field::setSide(side s){ _side = s; }
 
 void Field::handle(event ev)
 {
-    if((ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left) ||(ev.type==ev_key && ev.keycode==key_enter))
-        {  }
+   // if((ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left) )
+         setSide(yellow);
 
 }
 

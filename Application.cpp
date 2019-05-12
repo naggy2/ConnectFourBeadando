@@ -2,12 +2,10 @@
  #include "Application.h"
 
 
+using namespace genv;
 
 
-
-Application::Application(int w, int h){
-    _width = w;
-    _height = h;
+Application::Application(int w, int h) : _width(w), _height(h), _focus(-1){
 
 }
 Application::~Application(){
@@ -25,6 +23,22 @@ void Application::Run(){
 
 
     while(genv::gin >> ev && ev.keycode != genv::key_escape) {
+
+         if (ev.type == ev_mouse && ev.button==btn_left) {
+            for (size_t i=0;i<_widgets.size();i++) {_widgets[i]->changefocusdefault();}
+
+            for (size_t i=0;i<_widgets.size();i++) {
+                if (_widgets[i]->is_selected(ev.pos_x, ev.pos_y)) {
+                    _focus = i;
+                    if(_widgets[_focus]->is_focusable())
+                        {_widgets[i]->changefocus();}
+                }
+            }
+        }
+
+
+
+        if (_focus!=-1) { _widgets[_focus]->handle(ev); }
 
 
         //kirajzolás

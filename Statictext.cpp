@@ -21,6 +21,9 @@ void StaticText::addText(std::string tmp){
 std::string StaticText::getText() const{
     return _txt;
 }
+bool StaticText::is_focusable(){
+    return false;
+}
 
 void StaticText::handle(genv::event ev){}
 
