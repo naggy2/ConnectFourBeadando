@@ -1,7 +1,8 @@
 #ifndef GAMEMASTER_H
 #define GAMEMASTER_H
 
-
+#include "Field.h"
+#include "vector"
 
 class Gamemaster
 {
@@ -10,13 +11,15 @@ class Gamemaster
     int _player2;
     int _winner;
     bool _gameover;
-    public:
+
+public:
+
         Gamemaster();
         virtual ~Gamemaster();
 
-    protected:
+        void setFieldsDefault(std::vector<std::vector<Field*> > &f);
 
-    private:
+
 };
 
 #endif // GAMEMASTER_H

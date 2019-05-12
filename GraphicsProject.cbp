@@ -54,9 +54,7 @@
 		<Unit filename="Gamemaster.h" />
 		<Unit filename="Statictext.cpp" />
 		<Unit filename="Statictext.h" />
-		<Unit filename="include/Gamemaster.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Gamemaster.cpp" />
 		<Unit filename="widgets.cpp" />
 		<Unit filename="widgets.h" />
 		<Extensions>
