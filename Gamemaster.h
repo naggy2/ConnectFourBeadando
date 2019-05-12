@@ -5,6 +5,11 @@
 
 class Gamemaster
 {
+
+    int _player1;
+    int _player2;
+    int _winner;
+    bool _gameover;
     public:
         Gamemaster();
         virtual ~Gamemaster();

@@ -8,8 +8,8 @@ class Application
 {
 protected:
     int _width, _height;
-    int focus;
-    std::vector<Widget*> widgets;
+    int _focus;
+    std::vector<Widget*> _widgets;
 public:
     Application(int w, int h);
     virtual ~Application();

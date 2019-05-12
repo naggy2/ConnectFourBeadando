@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -24,6 +25,7 @@
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-O2" />
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -48,9 +50,13 @@
 		<Unit filename="Connectfour.h" />
 		<Unit filename="Field.cpp" />
 		<Unit filename="Field.h" />
+		<Unit filename="Gamemaster.cpp" />
+		<Unit filename="Gamemaster.h" />
 		<Unit filename="Statictext.cpp" />
 		<Unit filename="Statictext.h" />
+		<Unit filename="include/Gamemaster.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Gamemaster.cpp" />
 		<Unit filename="widgets.cpp" />
 		<Unit filename="widgets.h" />
 		<Extensions>

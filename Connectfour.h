@@ -14,14 +14,14 @@ class Connectfour : public Application
     Button* _retryButton;
     StaticText* _stext;
 
-    void setFields();
+    void initFields();
     void drawFields() const;
     void setFieldsDefault();
 
 public:
     Connectfour(int w, int h);
     ~Connectfour();
-    void Run();
+
 
 };
 
