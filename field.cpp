@@ -1,5 +1,6 @@
 #include "field.h"
 #include "graphics.hpp"
+#include "iostream" //törölni
 
 
 
@@ -63,8 +64,10 @@ void Field::setSide(side s){ _side = s; }
 
 void Field::handle(event ev)
 {
-   // if((ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left) )
+    if((ev.type == ev_mouse && ev.button == btn_left) ){
+        cout<<"heh";
          setSide(yellow);
+    }
 
 }
 

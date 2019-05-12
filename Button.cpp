@@ -32,7 +32,7 @@ void Button::draw() const{
 }
 void Button::handle(event ev)
 {
-    if((ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left) ||(ev.type==ev_key && ev.keycode==key_enter))
+    if((ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left) )
         { _func(); }
 
 }
