@@ -22,6 +22,7 @@ class Connectfour : public Application
 public:
     Connectfour(int w, int h);
     ~Connectfour();
+    void handleWidgets(genv::event ev);
 
 
 };

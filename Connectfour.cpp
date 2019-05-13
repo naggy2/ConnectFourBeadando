@@ -25,12 +25,13 @@ Connectfour::Connectfour(int w, int h): Application(w,h){
     initFields();
     _retryButton = new Button(this,300,30,70,30,[&](){ _gmaster->setFieldsDefault(_fields);});
     _gmaster = new Gamemaster();
-
-
-
 }
 Connectfour::~Connectfour(){}
 
+void Connectfour::handleWidgets(genv::event ev){
+
+    _widgets[_focus]->handle(ev);
+}
 
 
 

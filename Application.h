@@ -15,6 +15,7 @@ public:
     virtual ~Application();
     virtual void Run();
     virtual void RegisterWidget(Widget* w);
+    virtual void handleWidgets(genv::event ev)=0;
 };
 
 
