@@ -11,6 +11,7 @@ class Gamemaster
     int _player2;
     int _winner;
     bool _gameover;
+    int _turn;
 
 public:
 
@@ -18,6 +19,9 @@ public:
         virtual ~Gamemaster();
 
         void setFieldsDefault(std::vector<std::vector<Field*> > &f);
+        void setTurn();
+        bool isRowFull(std::vector<std::vector<Field*> > &f, int row);
+
 
 
 };

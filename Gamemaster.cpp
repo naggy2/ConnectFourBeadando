@@ -1,7 +1,7 @@
 #include "Gamemaster.h"
 
 
-Gamemaster::Gamemaster()
+Gamemaster::Gamemaster() : _turn(1)
 {
 
 }
@@ -17,6 +17,19 @@ void Gamemaster::setFieldsDefault(std::vector<std::vector<Field*> > &f){
         for (int j = 0;j< 6;j++ ){
             f[i][j]->setSide(none);
         }
-
     }
 }
+
+
+bool Gamemaster::isRowFull(std::vector<std::vector<Field*> > &f,int row){
+    if( f[row][0]->getSide() == 0) return false;
+    return true;
+
+}
+void Gamemaster::setTurn(){
+//    if(_turn==2) _turn-=1;
+//    else _turn+=1;
+}
+
+
+

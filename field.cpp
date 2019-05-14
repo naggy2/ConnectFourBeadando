@@ -63,8 +63,12 @@ void Field::setSide(side s){ _side = s; }
 
 void Field::handle(event ev)
 {
+
    // if((ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left) )
-         setSide(yellow);
+    extern unsigned int _turn;
+
+//    setSide(_turn % 2==0 ? 1 : 2);
+//    _turn++;
 
 }
 
