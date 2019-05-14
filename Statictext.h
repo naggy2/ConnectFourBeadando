@@ -15,6 +15,7 @@ public:
     void setText(std::string tmp);
     void addText(std::string tmp);
     std::string getText() const;
+    virtual bool is_focusable();
 
 };
 

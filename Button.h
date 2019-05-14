@@ -10,7 +10,7 @@ class Button : public Widget {
     std::function<void()> _func;
 
 public:
-    Button(Application* p,int x, int y, int sx, int sy,bool dir,std::function<void()> func);
+    Button(Application* p,int x, int y, int sx, int sy,std::function<void()> func);
 
     virtual void draw() const;
     void drawBox(int x_offset,int y_offset,int contourColor,int boxColor) const;
