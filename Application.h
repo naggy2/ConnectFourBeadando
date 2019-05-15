@@ -13,6 +13,7 @@ protected:
 public:
     Application(int w, int h);
     virtual ~Application();
+    virtual void refreshApp()=0;
     virtual void Run();
     virtual void RegisterWidget(Widget* w);
 //    virtual void handleWidgets(genv::event ev)=0;

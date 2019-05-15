@@ -14,9 +14,7 @@ Application::~Application(){
 void Application::RegisterWidget(Widget* w){
     _widgets.push_back(w);
 }
-//void Application::handleWidgets(){
-//    _widgets[_focus]->handle(ev);
-//}
+
 void Application::Run(){
 
     genv::gout.open(_width,_height);
@@ -40,9 +38,12 @@ void Application::Run(){
 
 
 
-//        if (_focus!=-1) { handleWidgets(ev);}
+
         if (_focus!=-1) {_widgets[_focus]->handle(ev);}
 
+        if (ev.type == ev_mouse && ev.button==btn_left) {
+            refreshApp();
+        }
 
         //kirajzolás
         for( auto w : _widgets){ w->draw();}

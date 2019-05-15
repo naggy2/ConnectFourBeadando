@@ -18,8 +18,8 @@ public:
 
     virtual void handle(genv::event ev);
 
-//    void setSide(int n);
-//    void setSide(side s);
+    void setSide(int n);
+    void setSide(side s);
 //    int getSide() const;
 //    bool isEmpty() const;
 

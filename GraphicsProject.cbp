@@ -46,6 +46,10 @@
 		<Unit filename="Button.h" />
 		<Unit filename="Connectfour.cpp" />
 		<Unit filename="Connectfour.h" />
+		<Unit filename="Field.cpp" />
+		<Unit filename="Field.h" />
+		<Unit filename="Gamemaster.cpp" />
+		<Unit filename="Gamemaster.h" />
 		<Unit filename="Statictext.cpp" />
 		<Unit filename="Statictext.h" />
 		<Unit filename="main.cpp" />

@@ -56,14 +56,14 @@ void Field::handle(event ev)
 //    return false;
 //}
 //
-//void Field::setSide(int n){
-//
-//    if(n == 0){ _side = none;}
-//    else if(n == 1) {_side = red;}
-//    else if(n == 2){_side = yellow;}
-//
-//}
-//void Field::setSide(side s){ _side = s; }
+void Field::setSide(int n){
+
+    if(n == 0){ _side = none;}
+    else if(n == 1) {_side = red;}
+    else if(n == 2){_side = yellow;}
+
+}
+void Field::setSide(side s){ _side = s; }
 
 
 
