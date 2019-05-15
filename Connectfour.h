@@ -17,6 +17,7 @@ class Connectfour : public Application
 
     void initFields();
     void refreshField();
+    void setWinnerDef();
 
 
 public:

@@ -4,23 +4,23 @@
 
 
 using namespace genv;
-using namespace std; //törölni
-
 
 
 Field::Field(Application* p,int x, int y, int sx, int sy,side s, std::function<void()> func)
-    : Widget(p,x,y,sx,sy), _side(s), _func(func){
+    : Widget(p,x,y,sx,sy), _winner(false), _side(s), _func(func){
 
 }
 /// példa megoldás, mapbe eltárolni a 4 nyertes field helyét és azokon végig menni és rajzolni.
 void Field::drawX() const {
 
-        gout<<color(0,0,0)<<move_to(_x,_y)<<box(5,5);
-//        gout<<color(0,0,0)<<move_to(_x+10,_y+7)<<line_to(_x+_sx-10,_y+_sy-7);
-//        gout<<move_to(_x+10,_y+_sy-7)<<line_to(_x+_sx-10,_y+7);
-//    }
-}
+       // gout<<color(0,0,0)<<move_to(_x,_y)<<box(5,5);
+        gout<<color(0,0,0)<<move_to(_x+10,_y+7)<<line_to(_x+_sx-10,_y+_sy-7);
+        gout<<move_to(_x+10,_y+_sy-7)<<line_to(_x+_sx-10,_y+7);
 
+}
+void Field::setWinner(bool b){
+    _winner = b;
+}
 
 void Field::draw() const{
 
@@ -41,6 +41,7 @@ void Field::draw() const{
 
     }
 
+    if(_winner) drawX();
 
 
 

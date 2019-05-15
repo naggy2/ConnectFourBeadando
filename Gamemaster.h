@@ -3,15 +3,22 @@
 
 
 #include "vector"
+#include "utility"
 
 enum gameStatus{inGame, fullBoard, winner};
 
 class Gamemaster
 {
 
+
     gameStatus _status;
     int _turn;
     std::vector<std::vector<int> > _players;
+    std::vector<std::pair<int, int>> _winnerFields;
+
+    bool isRowFull(int x);
+    bool isFieldFull();
+
 
 
 public:
@@ -20,9 +27,8 @@ public:
     virtual ~Gamemaster();
 
     std::vector<std::vector<int> > getField() const{return _players;}
+    std::vector<std::pair<int, int>>  getWinners() const{return _winnerFields;}
     gameStatus getGameStatus() const{return _status;}
-    bool isRowFull(int x);
-    bool isFieldFull();
     void checkNewElement(int x);
     void setFieldsDefault();
 

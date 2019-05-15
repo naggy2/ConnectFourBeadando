@@ -8,6 +8,7 @@ enum side {none = 0, red = 1, yellow = 2};
 
 class Field : public Widget {
 
+    bool _winner;
     side _side;
     std::function<void()> _func;
 
@@ -21,6 +22,7 @@ public:
 
     void setSide(int n);
     void setSide(side s);
+    void setWinner(bool b);
 
 
 

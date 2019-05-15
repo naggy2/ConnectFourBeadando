@@ -3,31 +3,33 @@
 
 
 using namespace genv;
-using namespace std;
 
-Button::Button(Application* p,int x, int y, int sx, int sy ,function<void()> func)
+
+Button::Button(Application* p,int x, int y, int sx, int sy ,std::function<void()> func)
     : Widget(p,x,y,sx,sy), _func(func){
 
 }
 
 void Button::drawBox(int x_offset,int y_offset,int contourColor,int boxColor) const{
-    genv::gout<<genv::color(contourColor,contourColor,contourColor)<<genv::move_to(_x + x_offset,_y + y_offset)  <<genv::box(_sx,_sy);
-    genv::gout<<genv::color(boxColor,boxColor,boxColor) <<genv::move_to(_x+x_offset +1, _y+1 +y_offset)<<genv::box(_sx-2,_sy-2);
+    gout<<color(contourColor,contourColor,contourColor)<<move_to(_x + x_offset,_y + y_offset)  <<box(_sx,_sy);
+    gout<<color(boxColor,boxColor,boxColor) <<move_to(_x+x_offset +1, _y+1 +y_offset)<<box(_sx-2,_sy-2);
 }
 void Button::drawBox(int x_offset,int y_offset,int contour_r,int contour_g,int contour_b,int boxColor) const{
-    genv::gout<<genv::color(contour_r,contour_g,contour_b)<<genv::move_to(_x + x_offset,_y + y_offset)  <<genv::box(_sx,_sy);
-    genv::gout<<genv::color(boxColor,boxColor,boxColor) <<genv::move_to(_x+x_offset +1, _y+1 +y_offset)<<genv::box(_sx-2,_sy-2);
+    gout<<color(contour_r,contour_g,contour_b)<<move_to(_x + x_offset,_y + y_offset)  <<box(_sx,_sy);
+    gout<<color(boxColor,boxColor,boxColor) <<move_to(_x+x_offset +1, _y+1 +y_offset)<<box(_sx-2,_sy-2);
 }
-void Button::drawText(int x_offset,int y_offset,int contourColor,int boxColor) const{
+void Button::drawText(int x_offset,int y_offset,int textColor) const{
+    gout<<color(textColor,textColor,textColor) <<move_to(_x+x_offset +1, _y+1 +y_offset)<<text(_txt);
 }
-void Button::drawText(int x_offset,int y_offset,int contour_r,int contour_g,int contour_b,int boxColor) const{
+void Button::drawText(int x_offset,int y_offset,int text_r,int text_g,int text_b) const{
+    gout<<color(text_r,text_g,text_b) <<move_to(_x+x_offset +1, _y+1 +y_offset)<<text(_txt);
 }
 
 
 void Button::draw() const{
 
-    drawBox(0,0,60,60);
-    drawText(0,0,60,60);
+    drawBox(0,0,30,60);
+    drawText(13,18,255);
 
 }
 void Button::handle(event ev)

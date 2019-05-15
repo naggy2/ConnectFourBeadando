@@ -1,8 +1,4 @@
-#include "graphics.hpp"
 #include "Application.h"
-#include "Connectfour.h"
-
-#include "Statictext.h"
 
 int main()
 {

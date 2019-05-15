@@ -2,9 +2,14 @@
 
 #include "Connectfour.h"
 #include "vector"
+#include "utility"
 
+/*TODO:
+Pontosabb kattintás érzékelés
+Players turn felirat
+*/
 
-using namespace genv; //törölni
+using namespace genv;
 
 Application* CreateApplication(int w, int h){
     return new Connectfour(w,h);
@@ -24,13 +29,21 @@ void Connectfour::initFields(){
     }
 }
 
+void Connectfour::setWinnerDef(){
+    for (unsigned int i = 0;i< _fields.size();i++ ){
+        for (size_t j = 0;j< _fields[i].size();j++ ){
+            _fields[i][j]->setWinner(false);
 
+        }
+    }
+}
 
 
 Connectfour::Connectfour(int w, int h): Application(w,h){
     _gmaster = new Gamemaster();
     initFields();
-    _retryButton = new Button(this,300,30,70,30,[&](){ _gmaster->setFieldsDefault();});
+    _retryButton = new Button(this,300,30,70,30,[&](){ _gmaster->setFieldsDefault();setWinnerDef();});
+    _retryButton->setText("Retry");
     _stext = new StaticText(this,50,50,200,30,"Hello");
 
 }
@@ -56,7 +69,20 @@ void Connectfour::refreshApp(){
     refreshField();
 
     if(_gmaster->getGameStatus()==fullBoard){ _stext->setText("A palya betelt"); }
-    else if(_gmaster->getGameStatus()==winner){ _stext->setText("gyoztes"); }
+    else if(_gmaster->getGameStatus()==winner){
+
+        _stext->setText("gyoztes");
+        std::vector<std::pair<int,int> > vec = _gmaster->getWinners();
+
+        for (unsigned int i = 0;i< vec.size();i++ ){
+
+            _fields[vec[i].first][vec[i].second]->setWinner(true);
+
+        }
+        gout<<refresh;
+
+
+    }
     else{ _stext ->setText("Hello");}
 
 
