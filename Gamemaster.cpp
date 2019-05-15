@@ -17,7 +17,7 @@ std::vector<std::vector<int> > initPlayers(){
 }
 
 
-Gamemaster::Gamemaster() : _turn(0),_players(initPlayers())
+Gamemaster::Gamemaster() : _status(inGame), _turn(0),_players(initPlayers())
 {
 
 }
@@ -32,16 +32,13 @@ bool Gamemaster::isRowFull(int x){
 
 }
 
-void Gamemaster::checkNewElement( int x){
-
-    if(!isRowFull(x)){
-
-        _turn++;
-        for (unsigned int i = 0;i< _players[x].size();i++ ){
-            if(_players[x][i] == 0) { _players[x][i] = _turn % 2==0 ? 1 : 2; break; }
+bool Gamemaster::isFieldFull(){
+    for (unsigned int i = 0;i< _players.size();i++ ){
+        for (unsigned int j = 0;j< _players[i].size();j++ ){
+            if(_players[i][j] == 0) return false;
         }
-
     }
+    return true;
 
 }
 
@@ -50,5 +47,35 @@ void Gamemaster::setFieldsDefault(){
     for (int i = 0;i< 7;i++ ){ for (int j = 0;j< 6;j++ ){
             _players[i][j]=0;
     } }
+    _status=inGame;
 
 }
+
+void Gamemaster::checkNewElement( int x){
+
+
+    if(_status!=fullBoard){
+
+        if(!isRowFull(x)){
+
+            _turn++;
+            for (unsigned int i = 0;i< _players[x].size();i++ ){
+                if(_players[x][i] == 0) { _players[x][i] = _turn % 2==0 ? 1 : 2; break; }
+            }
+
+            if(isFieldFull()){   _status = fullBoard;}
+            else{
+
+
+            }
+
+        }
+
+    }
+
+
+
+
+}
+
+

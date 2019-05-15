@@ -17,6 +17,10 @@ public:
     virtual bool is_selected(int mx, int my);
     virtual void draw() const = 0;
     virtual void handle(genv::event ev) = 0;
+    virtual int getX() const{return _x;}
+    virtual int getY() const{return _y;}
+    virtual int getSizeX() const{return _sx;}
+    virtual int getSizeY() const{return _sx;}
 
     virtual void changefocus();
     void changefocusdefault();

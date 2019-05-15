@@ -4,7 +4,7 @@
 
 #include "vector"
 
-enum gameStatus{inGame, draw, fullBoard};
+enum gameStatus{inGame, fullBoard, winner};
 
 class Gamemaster
 {
@@ -20,7 +20,9 @@ public:
     virtual ~Gamemaster();
 
     std::vector<std::vector<int> > getField() const{return _players;}
+    gameStatus getGameStatus() const{return _status;}
     bool isRowFull(int x);
+    bool isFieldFull();
     void checkNewElement(int x);
     void setFieldsDefault();
 

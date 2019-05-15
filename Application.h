@@ -9,10 +9,13 @@ class Application
 protected:
     int _width, _height;
     int _focus;
+
     std::vector<Widget*> _widgets;
 public:
     Application(int w, int h);
+
     virtual ~Application();
+
     virtual void refreshApp()=0;
     virtual void Run();
     virtual void RegisterWidget(Widget* w);

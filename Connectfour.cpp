@@ -31,8 +31,10 @@ Connectfour::Connectfour(int w, int h): Application(w,h){
     _gmaster = new Gamemaster();
     initFields();
     _retryButton = new Button(this,300,30,70,30,[&](){ _gmaster->setFieldsDefault();});
+    _stext = new StaticText(this,50,50,200,30,"Hello");
 
 }
+
 
 Connectfour::~Connectfour(){}
 
@@ -52,6 +54,11 @@ void Connectfour::refreshField(){
 void Connectfour::refreshApp(){
 
     refreshField();
+
+    if(_gmaster->getGameStatus()==fullBoard){ _stext->setText("A palya betelt"); }
+    else if(_gmaster->getGameStatus()==winner){ _stext->setText("gyoztes"); }
+    else{ _stext ->setText("Hello");}
+
 
 }
 

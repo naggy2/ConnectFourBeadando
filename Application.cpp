@@ -8,12 +8,15 @@ using namespace genv;
 Application::Application(int w, int h) : _width(w), _height(h), _focus(-1){
 
 }
+
 Application::~Application(){
 
 }
 void Application::RegisterWidget(Widget* w){
     _widgets.push_back(w);
 }
+
+
 
 void Application::Run(){
 
