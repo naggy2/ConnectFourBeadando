@@ -1,7 +1,7 @@
 #include "Gamemaster.h"
 
 
-
+#include "iostream"
 
 std::vector<std::vector<int> > initPlayers(){
     std::vector<std::vector<int> > players;
@@ -53,18 +53,57 @@ void Gamemaster::setFieldsDefault(){
 
 void Gamemaster::checkNewElement( int x){
 
-
-    if(_status!=fullBoard){
+    int y=-1;
+    if(_status!=fullBoard && _status!=winner){
 
         if(!isRowFull(x)){
 
             _turn++;
             for (unsigned int i = 0;i< _players[x].size();i++ ){
-                if(_players[x][i] == 0) { _players[x][i] = _turn % 2==0 ? 1 : 2; break; }
+                if(_players[x][i] == 0) { _players[x][i] = _turn % 2==0 ? 1 : 2;y=i; break; }
             }
 
             if(isFieldFull()){   _status = fullBoard;}
             else{
+                int num = _players[x][y];
+                int bx=x-3;
+                int by=y-3;
+                if(bx<0) bx=0;
+                if(by<0) by=0;
+
+                // a 4 és a 3 átalakítva _players.size()-3 illetve _player[0]s.size()-3-ra a játék kibõvíthetõ akármekkora pályára
+
+                /// VÍZSZINTES
+                for (int i = bx;i< 4;i++ ){
+                    if(_players[i][y] == num && _players[i+1][y] == num && _players[i+2][y] == num && _players[i+3][y] == num ){
+                        _status=winner; break;
+                    }
+                }
+
+                /// FÜGGÕLEGES
+                for (int i = by;i< 3;i++ ){
+                    if(_players[x][i] == num && _players[x][i+1] == num && _players[x][i+2] == num && _players[x][i+3] == num ){
+                        _status=winner; break;
+                    }
+                }
+
+                /// JOBB ÁTLÓS SÁV
+                for (int i = bx;i< 4;i++ ){
+                    for (int j = by;j< 3;j++ ){
+                        if(_players[i][j] == num && _players[i+1][j+1] == num && _players[i+2][j+2] == num && _players[i+3][j+3] == num ){
+                            _status=winner; break;
+                        }
+                    }
+                }
+                ///BAL ÁTLÓS SÁV
+                for (int i = bx;i< 4;i++ ){
+                    for (int j = by;j< 3;j++ ){
+                        if(_players[6-i][j] == num && _players[6-(i+1)][j+1] == num && _players[6-(i+2)][j+2] == num && _players[6-(i+3)][j+3] == num ){
+                            _status=winner; break;
+                        }
+                    }
+                }
+
 
 
             }

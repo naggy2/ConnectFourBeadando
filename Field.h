@@ -14,6 +14,7 @@ class Field : public Widget {
 public:
     Field(Application* p,int x, int y, int sx, int sy, side s,std::function<void()> func);
 
+    void  drawX() const;
     virtual void draw() const;
 
     virtual void handle(genv::event ev);
