@@ -4,24 +4,22 @@
 
 #include "vector"
 
-
+enum gameStatus{inGame, draw, fullBoard};
 
 class Gamemaster
 {
 
+    gameStatus _status;
     int _turn;
-    int _currentx;
-    int _currenty;
     std::vector<std::vector<int> > _players;
+
 
 public:
 
     Gamemaster();
     virtual ~Gamemaster();
 
-    int getTurn() const {return _turn;}
-    int getX() const{return _currentx;}
-    int getY() const{return _currenty;}
+    std::vector<std::vector<int> > getField() const{return _players;}
     bool isRowFull(int x);
     void checkNewElement(int x);
     void setFieldsDefault();

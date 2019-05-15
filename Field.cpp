@@ -44,18 +44,6 @@ void Field::handle(event ev)
 }
 
 
-//int Field::getSide() const{
-//
-//    if(_side == red) {return 1;}
-//    else if(_side == yellow){return 2;}
-//    return 0;
-//}
-//
-//bool Field::isEmpty() const{
-//    if(_side==none){ return true;}
-//    return false;
-//}
-//
 void Field::setSide(int n){
 
     if(n == 0){ _side = none;}

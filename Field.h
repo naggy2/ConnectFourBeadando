@@ -20,8 +20,7 @@ public:
 
     void setSide(int n);
     void setSide(side s);
-//    int getSide() const;
-//    bool isEmpty() const;
+
 
 
 };

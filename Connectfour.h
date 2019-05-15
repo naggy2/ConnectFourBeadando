@@ -16,7 +16,7 @@ class Connectfour : public Application
     StaticText* _stext;
 
     void initFields();
-    void setFieldSide(int x, int y,int turn);
+    void refreshField();
 
 
 public:
