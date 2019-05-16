@@ -29,6 +29,7 @@ public:
     std::vector<std::vector<int> > getField() const{return _players;}
     std::vector<std::pair<int, int>>  getWinners() const{return _winnerFields;}
     gameStatus getGameStatus() const{return _status;}
+    int getTurn() const{return _turn;}
     void checkNewElement(int x);
     void setFieldsDefault();
 

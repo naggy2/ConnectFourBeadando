@@ -16,7 +16,7 @@ class Connectfour : public Application
     StaticText* _stext;
 
     void initFields();
-    void refreshField();
+    void refreshBoard();
     void setWinnerDef();
 
 

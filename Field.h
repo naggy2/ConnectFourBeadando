@@ -15,9 +15,10 @@ class Field : public Widget {
 public:
     Field(Application* p,int x, int y, int sx, int sy, side s,std::function<void()> func);
 
-    void  drawX() const;
+    void  drawDot() const;
     virtual void draw() const;
 
+    bool is_selected(int m_x, int m_y);
     virtual void handle(genv::event ev);
 
     void setSide(int n);

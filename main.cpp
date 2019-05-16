@@ -2,8 +2,7 @@
 
 int main()
 {
-    auto app = CreateApplication(400,400);
-    //app->setBackgroundColor();
+    auto app = CreateApplication(500,500);
     app->Run();
     delete app;
 

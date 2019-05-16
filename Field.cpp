@@ -1,8 +1,6 @@
 #include "field.h"
 #include "graphics.hpp"
 
-
-
 using namespace genv;
 
 
@@ -10,22 +8,33 @@ Field::Field(Application* p,int x, int y, int sx, int sy,side s, std::function<v
     : Widget(p,x,y,sx,sy), _winner(false), _side(s), _func(func){
 
 }
-/// példa megoldás, mapbe eltárolni a 4 nyertes field helyét és azokon végig menni és rajzolni.
-void Field::drawX() const {
+/// Különben nem érzékel a mezõ körvonalán
+bool Field::is_selected(int m_x, int m_y)
+{
+    return m_x>=_x && m_x<_x+_sx && m_y>_y && m_y<=_y+_sy;
+}
 
-       // gout<<color(0,0,0)<<move_to(_x,_y)<<box(5,5);
-        gout<<color(0,0,0)<<move_to(_x+10,_y+7)<<line_to(_x+_sx-10,_y+_sy-7);
-        gout<<move_to(_x+10,_y+_sy-7)<<line_to(_x+_sx-10,_y+7);
+void Field::drawDot() const {
+
+    gout<<color(0,0,0);
+    for (int i = -6;i< 6;i++ ){
+        for (int j = -6;j< 6;j++ ){
+            if(i*i+j*j<6*6){
+                gout<<move_to(_x+ (_sx/2)+i,_y+ (_sy/2)+j)<<dot;
+            }
+        }
+
+    }
 
 }
-void Field::setWinner(bool b){
-    _winner = b;
-}
+void Field::setWinner(bool b){ _winner = b; }
 
 void Field::draw() const{
 
     int r = _sx/2-5;
-     gout<<move_to(_x,_y)<<color(0,0,200)<<box(_sx,_sy);
+     gout<<move_to(_x,_y)<<color(0,0,0)<<box(_sx,_sy);
+     gout<<move_to(_x+1,_y+1)<<color(0,0,200)<<box(_sx-1,_sy-1);
+
 
 
     if(_side == none){ gout<<color(137, 133, 128);}
@@ -41,7 +50,7 @@ void Field::draw() const{
 
     }
 
-    if(_winner) drawX();
+    if(_winner) drawDot();
 
 
 
@@ -50,7 +59,7 @@ void Field::draw() const{
 
 void Field::handle(event ev)
 {
-    if(ev.type == ev_mouse && is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left)
+    if( is_selected(ev.pos_x, ev.pos_y) && ev.button == btn_left)
         {_func();}
 }
 
