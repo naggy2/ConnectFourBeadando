@@ -11,17 +11,18 @@ protected:
     int _focus;
 
     std::vector<Widget*> _widgets;
+    virtual void refreshApp()=0;
+
+
 public:
     Application(int w, int h);
-
     virtual ~Application();
 
-    virtual void refreshApp()=0;
     virtual void Run();
     virtual void RegisterWidget(Widget* w);
-//    virtual void handleWidgets(genv::event ev)=0;
-};
 
+
+};
 
 extern Application* CreateApplication(int w, int h);
 

@@ -16,16 +16,14 @@ void Application::RegisterWidget(Widget* w){
     _widgets.push_back(w);
 }
 
-
-
 void Application::Run(){
 
-    genv::gout.open(_width,_height);
-    genv::gout<<genv::move_to(0,0)<<genv::color(137, 133, 128)<<genv::box_to(_width-1,_height-1)<<genv::refresh;
-    genv::event ev;
+    gout.open(_width,_height);
+    gout<<move_to(0,0)<<color(137, 133, 128)<<box_to(_width-1,_height-1)<<refresh;
+    event ev;
 
 
-    while(genv::gin >> ev && ev.keycode != genv::key_escape) {
+    while(gin >> ev && ev.keycode != key_escape) {
 
          if (ev.type == ev_mouse && ev.button==btn_left) {
             for (size_t i=0;i<_widgets.size();i++) {_widgets[i]->changefocusdefault();}
@@ -39,18 +37,12 @@ void Application::Run(){
             }
         }
 
-
-
-
         if (_focus!=-1) {_widgets[_focus]->handle(ev);}
 
-        if (ev.type == ev_mouse && ev.button==btn_left) {
-            refreshApp();
-        }
+        if (ev.type == ev_mouse && ev.button==btn_left) { refreshApp(); }
 
-        //kirajzolás
         for( auto w : _widgets){ w->draw();}
-        genv::gout<<genv::refresh;
+        gout<<refresh;
 
     }
 

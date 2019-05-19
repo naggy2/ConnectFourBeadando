@@ -7,8 +7,6 @@
 
 using namespace genv;
 
-
-
 Application* CreateApplication(int w, int h){
     return new Connectfour(w,h);
 }
@@ -19,7 +17,6 @@ void Connectfour::initFields(){
         for (int j = 0;j< 6;j++ ){
             Field *fi = new Field(this,75+i*50,375-j*50,50,50,none,[=](){
             _gmaster->checkNewElement(i);
-
             });
             f.push_back(fi);
         }
@@ -43,13 +40,9 @@ Connectfour::Connectfour(int w, int h): Application(w,h){
     _retryButton = new Button(this,355,90,70,30,[&](){ _gmaster->setFieldsDefault();setWinnerDef();});
     _retryButton->setText("Retry");
     _stext = new StaticText(this,65,50,200,30,"Let's start the game!");
-
 }
 
-
 Connectfour::~Connectfour(){}
-
-
 
 void Connectfour::refreshBoard(){
     std::vector<std::vector<int> > vec = _gmaster->getField();
@@ -59,8 +52,6 @@ void Connectfour::refreshBoard(){
 
         }
     }
-
-
 }
 
 std::string convertS(int a){
@@ -89,9 +80,7 @@ void Connectfour::refreshApp(){
         }
         gout<<refresh;
 
-
-    }
-    else{
+    }else{
         _stext ->setText(convertS(_gmaster->getTurn() % 2 == 0 ? 1 : 2)+". players turn");
     }
 

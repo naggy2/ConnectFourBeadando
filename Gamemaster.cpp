@@ -1,8 +1,6 @@
 #include "Gamemaster.h"
 
 
-
-
 std::vector<std::vector<int> > initPlayers(){
     std::vector<std::vector<int> > players;
     for (int i = 0;i< 7;i++ ){
@@ -55,10 +53,6 @@ void Gamemaster::setFieldsDefault(){
     for (int i = 0;i< 7;i++ ){ for (int j = 0;j< 6;j++ ){
             _players[i][j]=0;
     } }
-//    for (int i = 0;i< 4;i++ ){
-//        _winnerFields[i].first=-1;
-//        _winnerFields[i].second=-1;
-//    }
 
     _status=inGame;
 
@@ -73,8 +67,8 @@ void Gamemaster::checkNewElement( int x){
         /// Ha nincsen tele a választott oszlop
         if(!isRowFull(x)){
 
-
             _turn++;
+
             /// A sor legalsó még üres elemébe dobunk
             for (unsigned int i = 0;i< _players[x].size();i++ ){
                 if(_players[x][i] == 0) { _players[x][i] = _turn % 2==0 ? 1 : 2;y=i; break; }
@@ -147,8 +141,6 @@ void Gamemaster::checkNewElement( int x){
                             }
                         }
                     }
-
-
 
                 }
             }

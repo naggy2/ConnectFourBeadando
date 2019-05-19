@@ -9,8 +9,6 @@ enum gameStatus{inGame, fullBoard, winner};
 
 class Gamemaster
 {
-
-
     gameStatus _status;
     int _turn;
     std::vector<std::vector<int> > _players;
@@ -18,8 +16,6 @@ class Gamemaster
 
     bool isRowFull(int x);
     bool isFieldFull();
-
-
 
 public:
 

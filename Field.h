@@ -18,7 +18,8 @@ public:
     void  drawDot() const;
     virtual void draw() const;
 
-    bool is_selected(int m_x, int m_y);
+    /// Különben nem érzékel a mezõ körvonalán
+    bool is_selected(int m_x, int m_y){ return m_x>=_x && m_x<_x+_sx && m_y>_y && m_y<=_y+_sy;}
     virtual void handle(genv::event ev);
 
     void setSide(int n);
