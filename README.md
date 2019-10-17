@@ -1,7 +1,9 @@
 # ConnectFour
 
-Egyetemi project.
-A tantárgy harmadik és egyben utolsó beadandó projectje.
+This repository made for a university project, used C++11 and a graphic library made by our lecturer. (Hungarian) Documentation of the used graphic library: http://users.itk.ppke.hu/~flugi/grafikuslib/graphics.html
 
-A félév során a tantárgy oktató által létrehozott grafikus könyvtárat használva létre kellett hoznom egy widget készletet.
-(számbeállító, szövegdoboz, checkbox, kiválasztó, gomb, statikus szöveg,
+Most important part of the project was to implement a set of widgets which we had to code and design throught the semester.
+https://github.com/gyurinagy/Widgets
+
+The application is a simple connect four game.
+The graphic elements was written in the widgets' classes. The rules, regulation and the computing was implemented in the Gamemaster class. And the application class runs and handles the game.
